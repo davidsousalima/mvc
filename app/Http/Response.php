@@ -14,7 +14,7 @@
 		private  $headers = [];
 		/**
 		 * Tipo de conteudo que está sendo retornado
-		 * @var array
+		 * @var string
 		 */
 		private $contentType = 'text/html';
 		/**
@@ -23,13 +23,13 @@
 		 */
 		private $content;
 		/**
-		 * Método responsável por indicar a classe e definir os valores
+		 * Método responsável por iniciar a classe e definir os valores
 		 * @param integer $httpCode
 		 * @param mixed  $content
 		 * @param string  $contentType
 		 */
 		public function __construct($httpCode,$content,$contentType = 'text/html'){
-			$this->httpCode = $httpCode;
+			$this->$httpCode = $httpCode;
 			$this->content = $content;
 			$this->setContentType($contentType);
 		}
@@ -47,7 +47,7 @@
 		 * @param string $value
 		 */
 		public function addHeader($key,$values){
-			$this->headers[$key] = $value;
+			$this->headers[$key] = $values;
 		}
 		/**
 		 * Método responsável por enviar os headers para o navegador
@@ -58,7 +58,7 @@
 
 			//Enviar Headers
 			foreach($this->headers as $key=>$values){
-				header($key.': '.$value);
+				header($key.': '.$values);
 			}
 		}
 		/**

@@ -3,7 +3,7 @@
 
 	class Request{
 		/**
-		 * Método HTTP da requesição
+		 *Atributo HTTP da requesição
 		 * @var string 
 		 */
 		private $httpMethod;
